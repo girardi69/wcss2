@@ -39,28 +39,28 @@ nicenumber()
   fi
 }
 
-#DD="."  # Decimal point delimiter to separate whole and fractional values
-#TD=","  # Thousands delimiter, to separate every three digits
+DD="."  # Decimal point delimiter to separate whole and fractional values
+TD=","  # Thousands delimiter, to separate every three digits
 
 # BEGIN MAIN SCRIPT
 # =================
 
-#while getopts "d:t:" opt; do
-#  case $opt in
-#    d ) DD="$OPTARG"    ;;
-#    t ) TD="$OPTARG"    ;;
-#  esac
-#done
-#shift $(($OPTIND - 1))
+while getopts "d:t:" opt; do
+  case $opt in
+    d ) DD="$OPTARG"    ;;
+    t ) TD="$OPTARG"    ;;
+  esac
+done
+shift $(($OPTIND - 1))
 
 # Input validation
-#if [ $# -eq 0 ] ; then
-#  echo "Usage: $(basename $0) [-d c] [-t c] numeric_value"
-#  echo "  -d specifies the decimal point delimiter (default '.')"
-#  echo "  -t specifies the thousands delimiter (default ',')"
-#  exit 0
-#fi
+if [ $# -eq 0 ] ; then
+  echo "Usage: $(basename $0) [-d c] [-t c] numeric_value"
+  echo "  -d specifies the decimal point delimiter (default '.')"
+  echo "  -t specifies the thousands delimiter (default ',')"
+  exit 0
+fi
 
-#nicenumber $1 1         # Second arg forces nicenumber to 'echo' output.
+nicenumber $1 1         # Second arg forces nicenumber to 'echo' output.
 
-#exit 0
+exit 0
